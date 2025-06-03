@@ -4,11 +4,11 @@ on:
     branches: ["main"]
 jobs:
   first-job:
-  runs-on: ubuntu-latest
-  
-  steps:
-    - name: Hola mundo
-      run: echo "Hola mundo"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Hola mundo
+        run: echo "Hola mundo"
   
   second-job:
     runs-on: ubuntu-latest
