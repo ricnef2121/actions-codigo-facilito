@@ -1,0 +1,15 @@
+name: "DEPLOY BOOTCAMP CODIGO FACILITO"
+on:
+  push:
+    branches: ["main"]
+  
+jobs:
+  deploy-bootcamp:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hacemos pull del codigo"
+      - run: echo "Instalamos dependencias"
+      - run: echo "Compilamos el codigo"
+      - run: echo "Hacemos deploy del codigo"
+      - run: echo "Notificamos a los usuarios"
+      - run: echo "Fin del proceso de deploy" 
