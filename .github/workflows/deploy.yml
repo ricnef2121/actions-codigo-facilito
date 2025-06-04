@@ -44,7 +44,7 @@ jobs:
       - name: Generar archivo
         run: |
           echo "Generando archivo"
-          echo "Este es un archivo generado por el tercer job" > test.log
+          echo "Este es un archivo generado por el tercer job" >> test.log
       
       - name: Subir artefacto
         uses: actions/upload-artifact@v2
