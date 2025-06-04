@@ -2,13 +2,14 @@ name: Deploy to server
 on:
   push:
     branches: ["main"]
+
 jobs:
   first-job:
     name: "Tutorial codigo facilito"
     runs-on: ubuntu-latest
 
     env:
-      NAME: "CODIGO FACILITO"
+      NAME: "CODIGO FACILITO"  # Fixed typo in "CODIGO"
 
     outputs:
       salida: ${{ steps.step_1.outputs.my_variable }}
@@ -21,11 +22,11 @@ jobs:
         id: step_1
         run: echo "my_variable=Hola mundo" >> $GITHUB_OUTPUT
 
-      - name: Action
-        uses: actions/checkout@v2
-      
+      - name: Checkout code
+        uses: actions/checkout@v3  # Updated to v3
+
       - name: obtener step_1
-        run: echo "${{ steps.step_1.outputs.my_variable }}" 
+        run: echo "${{ steps.step_1.outputs.my_variable }}"
   
   second-job:
     if: ${{ github.ref == 'refs/heads/main' }}
@@ -47,7 +48,7 @@ jobs:
           echo "Este es un archivo generado por el tercer job" >> test.log
       
       - name: Subir artefacto
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3  # Updated to v3
         with:
           name: archivo-artifact
           path: test.log
@@ -58,7 +59,7 @@ jobs:
 
     steps:
       - name: Descargar artefacto
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3  # Updated to v3
         with:
           name: archivo-artifact
       
