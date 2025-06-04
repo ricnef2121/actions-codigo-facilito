@@ -4,6 +4,7 @@ on:
     branches: ["main"]
 jobs:
   first-job:
+    name: "Tutorial codigo facilito"
     runs-on: ubuntu-latest
 
     env:
