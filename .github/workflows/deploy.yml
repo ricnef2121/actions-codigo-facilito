@@ -15,10 +15,14 @@ jobs:
         run: echo "Hola mundo $NAME"
 
       - name: working dir
-        run: ls -al
+        id: step_1
+        run: echo "my_variable=Hola mundo" >> $GITHUB_OUTPUT
 
       - name: Action
         uses: actions/checkout@v2
+      
+      - name: obtener step_1
+        run: echo "${{ steps.step_1.outputs.my_variable }}" 
   
   second-job:
     if: ${{ github.ref == 'refs/heads/main' }}
