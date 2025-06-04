@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      NAME: "CODIGO FACILITO"  # Fixed typo in "CODIGO"
+      NAME: "CODIGO FACILITO"
 
     outputs:
       salida: ${{ steps.step_1.outputs.my_variable }}
@@ -23,7 +23,7 @@ jobs:
         run: echo "my_variable=Hola mundo" >> $GITHUB_OUTPUT
 
       - name: Checkout code
-        uses: actions/checkout@v3  # Updated to v3
+        uses: actions/checkout@v2
 
       - name: obtener step_1
         run: echo "${{ steps.step_1.outputs.my_variable }}"
@@ -44,11 +44,10 @@ jobs:
     steps:
       - name: Generar archivo
         run: |
-          echo "Generando archivo"
           echo "Este es un archivo generado por el tercer job" >> test.log
       
       - name: Subir artefacto
-        uses: actions/upload-artifact@v3  # Updated to v3
+        uses: actions/upload-artifact@v2
         with:
           name: archivo-artifact
           path: test.log
@@ -59,7 +58,7 @@ jobs:
 
     steps:
       - name: Descargar artefacto
-        uses: actions/download-artifact@v3  # Updated to v3
+        uses: actions/download-artifact@v2
         with:
           name: archivo-artifact
       
